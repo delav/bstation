@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Bibili.iml" filepath="$PROJECT_DIR$/.idea/Bibili.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../IPPool/.idea/IPPool.iml" filepath="$PROJECT_DIR$/../IPPool/.idea/IPPool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../myshop/.idea/myshop.iml" filepath="$PROJECT_DIR$/../myshop/.idea/myshop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../paser/.idea/paser.iml" filepath="$PROJECT_DIR$/../paser/.idea/paser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rf_automation/.idea/rf_automation.iml" filepath="$PROJECT_DIR$/../rf_automation/.idea/rf_automation.iml" />
+    </modules>
+  </component>
+</project>
