@@ -8,37 +8,33 @@ import csv
 import json
 import codecs
 from items import VideoItem, AuthorItem
-import sys
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 
 # 保存为json文件
 class BibiliPipeline(object):
 
     def __init__(self):
-        # self.file1 = codecs.open('video.json', 'w+', encoding='utf-8')
-        self.file2 = codecs.open('video.json', 'w+', encoding='utf-8')
-        # self.file1.write('[')
-        self.file2.write('[')
+        self.file1 = codecs.open('author.json', 'w+', encoding='utf-8')
+        # self.file2 = codecs.open('video.json', 'w+', encoding='utf-8')
+        self.file1.write('[')
+        # self.file2.write('[')
 
     def process_item(self, item, spider):
-        # if isinstance(item, VideoItem):
-        #     line = json.dumps(dict(item), ensure_ascii=False) + ",\n"
-        #     self.file1.write(line)
+        if isinstance(item, VideoItem):
+            line = json.dumps(dict(item), ensure_ascii=False) + ",\n"
+            self.file1.write(line)
         # elif isinstance(item, AuthorItem):
-        line = json.dumps(dict(item), ensure_ascii=False) + ",\n"
-        self.file2.write(line)
+        #     line = json.dumps(dict(item), ensure_ascii=False) + ",\n"
+        #     self.file2.write(line)
         return item
 
     def close_spider(self, spider):
-        # self.file1.seek(-2, 2)  # 删除最后一行的逗号和换行符
-        self.file2.seek(-1, 2)
-        # self.file1.write(']')
-        self.file2.write(']')
-        # self.file1.close()
-        self.file2.close()
+        self.file1.seek(-1, 2)  # 删除最后一行的逗号和换行符
+        # self.file2.seek(-1, 2)
+        self.file1.write(']')
+        # self.file2.write(']')
+        self.file1.close()
+        # self.file2.close()
 
 # 保存为csv文件(windows打开中文是乱码)
 # class BibiliPipeline(object):

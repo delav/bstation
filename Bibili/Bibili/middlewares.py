@@ -8,6 +8,9 @@
 from scrapy import signals
 import MySQLdb
 import random
+# from . import settings
+from scrapy.utils.project import get_project_settings
+settings = get_project_settings()
 
 
 class BibiliSpiderMiddleware(object):
@@ -105,20 +108,28 @@ class BibiliDownloaderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
+# 代理
 class ProxyMiddleware(object):
     def __init__(self):
         self.conn = MySQLdb.connect(host="localhost",
                                     port=3306,
                                     user="root",
-                                    passwd="*****",
+                                    passwd="729814",
                                     charset="utf8")
         self.cur = self.conn.cursor()
         self.conn.select_db('ippool')
-        self.cur.execute("select ip, port from proxys")
-        self.proxy = self.cur.fetchall()
+        self.cur.execute("SELECT MIN(id),MAX(id) FROM proxys")
+        self.id = self.cur.fetchall()[0]
 
     def process_request(self, request, spider):
-        ip_port = random.choice(self.proxy)
+        r_id = random.randint(int(self.id[0]), int(self.id[1]))
+        self.cur.execute("SELECT ip, port, protocol FROM proxys WHERE id='%s'" % r_id)
+        ip_port = self.cur.fetchone()
         ip = ip_port[0]
         port = ip_port[1]
-        request.meta['proxy'] = "http://{}:{}".format(ip, port)
+        protocol = ip_port[2]
+        if len(protocol) > 5:
+            protocol = 'http'
+        request.meta['proxy'] = "{}://{}:{}".format(protocol, ip, port)
+        header = random.choice(settings.get('USER_AGENTS'))
+        request.headers.setdefault('User-Agent', header)

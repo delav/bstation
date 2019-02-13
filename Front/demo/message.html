@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>留言</title>
+    <link rel="stylesheet" href="../frame/layui/css/layui.css">
+    <link rel="stylesheet" href="../frame/static/css/style.css">
+    <link rel="icon" href="../frame/static/image/code.png">
+</head>
+<body class="body">
+<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+    <ul class="layui-tab-title">
+        <li class="layui-this">留言</li>
+    </ul>
+    <div class="layui-tab-content" style="height: 100px;">
+        <div class="layui-tab-item layui-show">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item layui-form-text">
+                    <!--<label class="layui-form-label">tenantID    device</label>-->
+                    <div class="layui-input-block">
+                        <textarea  placeholder="请输入内容。。。。" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-submit="" lay-filter="sub" onclick="sub()">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="../frame/layui/layui.js" charset="utf-8"></script>
+<script src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+
+    function sub() {
+        $.ajax({
+            type: "GET",
+            url: "localhost:8000//message",
+            data: {}
+        })
+    }
+
+</script>
+</body>
+</html>

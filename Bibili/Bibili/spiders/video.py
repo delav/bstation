@@ -62,9 +62,9 @@ class VideoSpider(scrapy.Spider):
         v_url = response.url
         video_aid = v_url.split('/')[-2][2:]
         title = response.xpath('//*[@id="viewbox_report"]/h1/span/text()')  # 标题
-        types1 = response.xpath('//*[@id="viewbox_report"]/div/span[2]/a[1]/text()')
-        types2 = response.xpath('//*[@id="viewbox_report"]/div/span[3]/a[1]/text()')
-        public_time = response.xpath('//*[@id="viewbox_report"]/div/time/text()')  # 发布时间
+        types1 = response.xpath('//*[@id="viewbox_report"]/div[1]/span/a[1]/text()')
+        types2 = response.xpath('//*[@id="viewbox_report"]/div[1]/span/a[2]/text()')
+        public_time = response.xpath('//*[@id="viewbox_report"]/div[1]/time/text()')  # 发布时间
         author_name = response.xpath('//*[@id="v_upinfo"]/div[2]/div[1]/a[1]/text()')  # 作者
         author_url = response.xpath('//*[@id="v_upinfo"]/div[2]/div[1]/a[1]/@href')  # 作者地址
         # view = response.xpath('//*[@id="viewbox_report"]/div/span[@class="v play"]/@title')  # 播放
