@@ -24,9 +24,7 @@
         .anchorBL{
             display:none;
         }
-
     </style>
-
 </head>
 <body>
 
@@ -41,10 +39,10 @@
         <!-- 顶部右侧添加选项卡监听 -->
         <ul class="layui-nav my-header-user-nav" lay-filter="side-top-right">
             <li class="layui-nav-item">
-                <a class="name" href="javascript:" href-url="demo/signup.html"><i class="layui-icon">&#xe770;</i>Admin</a>
+                <a class="name" href="javascript:" data-method="offset" data-type="auto" ><i class="layui-icon">&#xe770;</i>Admin</a>
             </li>
             <li class="layui-nav-item">
-                <a href="javascript:"><i class="layui-icon"></i>注销</a>
+                <a href="javascript:" ><i class="layui-icon"></i>注销</a>
             </li>
         </ul>
 
@@ -55,24 +53,24 @@
             <!-- 左侧主菜单添加选项卡监听 -->
             <ul class="layui-nav layui-nav-tree" lay-filter="side-main">
                 <li class="layui-nav-item">
-                    <a href="javascript:" href-url="demo/deviceinfo.html"><i class="layui-icon">&#xe620;</i>数据总览</a>
+                    <a href="javascript:" href-url="demo/deviceinfo.html"><i class="layui-icon">&#xe62c;</i>数据总览</a>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:"><i class="layui-icon">&#xe628;</i>视频相关数据</a>
+                    <a href="javascript:"><i class="layui-icon">&#xe857;</i>视频相关数据</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:" href-url="demo/videolist.html"><i class="layui-icon">&#xe621;</i>视频信息</a></dd>
-                        <dd><a href="javascript:" href-url="demo/videochart.html"><i class="layui-icon">&#xe62f;</i>数据分析</a></dd>
+                        <dd><a href="javascript:" href-url="demo/videolist.html"><i class="layui-icon">&#xe60a;</i>视频信息</a></dd>
+                        <dd><a href="javascript:" href-url="demo/videochart.html"><i class="layui-icon">&#xe62c;</i>数据分析</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:"><i class="layui-icon">&#xe857;</i>用户相关数据</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:" href-url="demo/userlist.html"><i class="layui-icon">&#xe62c;</i>用户信息</a></dd>
-                        <dd><a href="javascript:" href-url="demo/userchart.html"><i class="layui-icon">&#xe62d;</i>数据分析</a></dd>
+                        <dd><a href="javascript:" href-url="demo/authorlist.html"><i class="layui-icon">&#xe60a;</i>用户信息</a></dd>
+                        <dd><a href="javascript:" href-url="demo/authorchart.html"><i class="layui-icon">&#xe62c;</i>数据分析</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:" href-url="demo/message.html"><i class="layui-icon">&#xe64c;</i>留言</a>
+                    <a href="javascript:" href-url="demo/message.html"><i class="layui-icon">&#xe611;</i>用户留言</a>
                 </li>
             </ul>
 
@@ -83,7 +81,7 @@
     <div class="layui-body my-body">
         <div class="layui-tab layui-tab-card my-tab" lay-filter="card" lay-allowClose="true">
             <ul class="layui-tab-title">
-                <li class="layui-this" lay-id="1"><span><i class="layui-icon">&#xe638;</i>首页</span></li>
+                <li class="layui-this" lay-id="1"><span><i class="layui-icon">&#xe68e;</i>首页</span></li>
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
@@ -119,26 +117,44 @@ layui.use(['layer','vip_nav'], function () {
     vipNav.main('./json/nav_main.json','side-main',false);
 
     // you code ...
+    var active = {
+        offset: function(othis){
+            var type = othis.data('type')
+            ,text = othis.text();
 
+            layer.open({
+                type: 1
+                ,offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+                ,id: 'layerDemo'+type //防止重复弹出
+                ,content: 'demo/deviceinfo.html'
+                ,btn: '关闭全部'
+                ,btnAlign: 'c' //按钮居中
+                ,shade: 0 //不显示遮罩
+                ,yes: function(){
+                    layer.closeAll();
+                }
+            });
+        }
+    }
 
 });
 </script>
-<script type="text/javascript">
-    document.getElementById("YWaitDialog").setAttribute("style","display:flex;");
-</script>
+<!--<script type="text/javascript">-->
+    <!--document.getElementById("YWaitDialog").setAttribute("style","display:flex;");-->
+<!--</script>-->
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/common.js"></script>
 <script src="js/getUrlParam.js"></script>
 <script src="js/starttoend.js"></script>
-<script src="http://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script>
-<script src="js/bmap.js"></script>
+<!--<script src="http://api.map.baidu.com/api?v=2.0&ak=53oVIOgmSIejwV7EfphPgTynOZbIiVYu"></script>-->
+<!--<script src="js/bmap.js"></script>-->
 <script src="js/mapjson.js"></script>
-<script src="js/map1.js"></script>
-<script src="js/dark.js"></script>
-<script src="js/start.js"></script>
-<script type="text/javascript">
-    document.getElementById("YWaitDialog").setAttribute("style","display:none;");
-</script>
+<!--<script src="js/map1.js"></script>-->
+<!--<script src="js/dark.js"></script>-->
+<!--<script src="js/start.js"></script>-->
+<!--<script type="text/javascript">-->
+    <!--document.getElementById("YWaitDialog").setAttribute("style","display:none;");-->
+<!--</script>-->
 
 </body>
 </html>
