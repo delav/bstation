@@ -10,9 +10,13 @@ class MessageSerializers(serializers.ModelSerializer):
         model = Message
         fields = ('name', 'words', 'public_time')
 
-    # def validate(self, attrs):
-    #     user = attrs['name']
-    #     if not user:
-    #         raise serializers.ValidationError('用户未登录')
-    #     return attrs
+    def validate(self, attrs):
+        print "attrs:", attrs
+        user = attrs['name']
+        words = attrs['words']
+        if not user:
+            raise serializers.ValidationError('用户未登录')
+        if not words:
+            raise serializers.ValidationError('内容不能为空')
+        return attrs
 

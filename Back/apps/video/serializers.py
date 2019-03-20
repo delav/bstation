@@ -6,5 +6,5 @@ class VideoSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Video
-        fields = ('id', 'url', 'title', 'types', 'public_time', 'author_name', 'author_url', 'author_id', 'view',
-                  'danmaku', 'reply', 'favorite', 'coin', 'share', 'like')
+        fields = ('id', 'url', 'title', 'types', 'public_time', 'author_name', 'author_url', 'views',
+                  'danmaku', 'reply', 'favorite', 'coin', 'share', 'likes')

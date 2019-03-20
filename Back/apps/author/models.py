@@ -8,8 +8,7 @@ import uuid
 
 class Author(models.Model):
 
-    id = models.BigIntegerField(auto_created=True, primary_key=True, default=uuid.uuid1, blank=False,
-                                unique=True, verbose_name='作者ID')
+    id = models.CharField(max_length=50, primary_key=True, blank=False, unique=True, verbose_name='作者ID')
     a_url = models.CharField(max_length=100, default='', blank=True, verbose_name='作者主页')
     up_name = models.CharField(max_length=300, default='未知', verbose_name='作者昵称')
     sex = models.CharField(max_length=100, default='男', verbose_name='性别')

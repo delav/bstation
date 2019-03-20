@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://F:/BStation/.idea/BStation.iml" filepath="F:/BStation/.idea/BStation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Back.iml" filepath="$PROJECT_DIR$/.idea/Back.iml" />
-      <module fileurl="file://$USER_HOME$/Desktop/文件/Server/.idea/Server.iml" filepath="$USER_HOME$/Desktop/文件/Server/.idea/Server.iml" />
-      <module fileurl="file://F:/Front/.idea/cpts_1065_vip-admin.iml" filepath="F:/Front/.idea/cpts_1065_vip-admin.iml" />
-      <module fileurl="file://F:/paser/.idea/paser.iml" filepath="F:/paser/.idea/paser.iml" />
-      <module fileurl="file://F:/rf_automation/.idea/rf_automation.iml" filepath="F:/rf_automation/.idea/rf_automation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Login/.idea/Login.iml" filepath="$PROJECT_DIR$/../Login/.idea/Login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Front/.idea/cpts_1065_vip-admin.iml" filepath="$PROJECT_DIR$/../Front/.idea/cpts_1065_vip-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../rf_automation/.idea/rf_automation.iml" filepath="$PROJECT_DIR$/../rf_automation/.idea/rf_automation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tool/.idea/tool.iml" filepath="$PROJECT_DIR$/../tool/.idea/tool.iml" />
     </modules>
   </component>
 </project>

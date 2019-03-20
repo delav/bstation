@@ -18,32 +18,34 @@ class RegisterViewSets(generics.CreateAPIView):
 
     def create(self, request, *args, **kwargs):
         raw_data = self.request.data
-        print('raw_data', raw_data)
-        code = raw_data['code']
-        session_code = request.session.get('code')
-        print('session code', session_code)
-        if code == '':
-            return Response({'result': False, 'details': '验证码为空'})
-        if session_code is None:
-            return Response({'result': False, 'details': '验证码已过期'})
-        else:
-            if str(session_code).upper() != str(code).upper():
-                return Response({'result': False, 'details': '验证码错误'})
+        # print('raw_data', raw_data)
+        # code = raw_data['code']
+        # session_code = request.session.get('code')
+        # print('session code', session_code)
+        # if code == '':
+        #     return Response({'result': False, 'details': '验证码为空'})
+        # if session_code is None:
+        #     return Response({'result': False, 'details': '验证码已过期'})
+        # else:
+        #     if str(session_code).upper() != str(code).upper():
+        #         return Response({'result': False, 'details': '验证码错误'})
         # return Response(raw_data)
+
+        # 使用RegisterSerializers校检数据
         serializer = RegisterSerializers(data=raw_data)
+        # 如果校检全部通过
         if serializer.is_valid(raise_exception=False):
             data = serializer.data
-            print('data', data)
             username = data['username']
             password = data['password']
             user = User.objects.filter(username=username)
             if user.count() < 1:
                 data['password'] = make_password(password)
-                del data['code']
+                # del data['code']
                 user.create(**data)
-                return Response({'result': True, 'details': '注册成功'})
+                return Response({'username': username, 'result': True, 'details': '注册成功'})
             else:
-                return Response({'result': False, 'details': '该用户已注册'})
+                return Response({'username': username, 'result': False, 'details': '该用户已注册'})
         else:
             return Response({'result': False, 'details': serializer.errors})
 
@@ -63,7 +65,9 @@ class LoginViewSets(generics.CreateAPIView):
             payload = jwt_payload_handler(user)
             token = jwt_encode_handler(payload)
             request.session.clear_expired()
+            data['result'] = True
+            data['username'] = username
             data['token'] = token
             data['details'] = '登录成功'
             return Response(data)
-        return Response({'result': False, 'details': '用户名或密码错误！'})
+        return Response({'username': username, 'result': False, 'details': '用户名或密码错误！'})

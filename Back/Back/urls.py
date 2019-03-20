@@ -42,6 +42,6 @@ urlpatterns = [
     url(r'^login$', LoginViewSets.as_view(), name='login'),
     url(r'^register$', RegisterViewSets.as_view(), name='register'),
     url(r'^verify$', Verify.verify_code, name='verify'),
-    url(r'^message$', MessageViewSets.as_view(), name='message'),
+    url(r'^message', MessageViewSets.as_view(), name='message'),
     url(r'^chart$', ChartViewSets.as_view(), name='chart')
 ]
