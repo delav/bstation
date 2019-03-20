@@ -10,6 +10,7 @@
     <!--<link rel="stylesheet" href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">-->
     <link rel="stylesheet" href="../frame/static/css/style.css">
     <link rel="icon" href="../frame/static/image/code.png">
+    <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="../js/dataforecast.js"></script>
 </head>
 <body class="body">
@@ -23,74 +24,13 @@
         <button class="layui-btn mgl-20">查询</button>
     </span>
 </div>
-
-<!-- 表格 -->
-<!--<table id="dateTable" lay-filter="dataCheck"></table>-->
-
-
-<!--<script type="text/javascript" src="../frame/layui/layui.js"></script>-->
-<!--<script type="text/javascript" src="../js/index.js"></script>-->
-<!--<script type="text/javascript">-->
-
-    <!--// layui方法-->
-    <!--layui.use(['table', 'form', 'layer', 'vip_table','laydate'], function () {-->
-
-        <!--// 操作对象-->
-        <!--var form = layui.form-->
-            <!--, table = layui.table-->
-            <!--, layer = layui.layer-->
-            <!--, vipTable = layui.vip_table-->
-            <!--,laydate = layui.laydate-->
-            <!--, $ = layui.jquery;-->
-
-        <!--// 表格渲染-->
-        <!--var tableIns = table.render({-->
-            <!--elem: '#dateTable'                  //指定原始表格元素选择器（推荐id选择器）-->
-            <!--, height: 250    //容器高度-->
-            <!--, cols: [[                  //标题栏-->
-                <!--{field: 'title', title: '标题', width: 250}-->
-                <!--, {field: 'author', title: '作者', width: 150}-->
-                <!--, {field: 'url', title: '地址', width: 150}-->
-                <!--, {field: 'type', title: '类型', width: 150}-->
-                <!--, {field: 'time', title: '时间', width: 150}-->
-                <!--, {fixed: 'right', title: '操作', width: 286, align: 'center', toolbar: '#barOption'} //这里的toolbar值是模板元素的选择器-->
-            <!--]]-->
-            <!--//, id: 'dataCheck'-->
-            <!--//, url: './../json/data_table.json'-->
-            <!--,data:[{"title":"Python","author":"Delav","url":"www","type":"动画","time":2019},{"title":"Java","author":"admin","url":"com","type":"番剧","time":2018}]-->
-            <!--, method: 'get'-->
-            <!--, page: true-->
-            <!--, limits: [30, 60, 90, 150, 300]-->
-            <!--, limit: 30 //默认采用30-->
-            <!--, loading: false-->
-            <!--, done: function (res, curr, count) {-->
-                <!--//如果是异步请求数据方式，res即为你接口返回的信息。-->
-                <!--//如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度-->
-                <!--console.log(res);-->
-
-                <!--//得到当前页码-->
-                <!--console.log(curr);-->
-
-                <!--//得到数据总量-->
-                <!--console.log(count);-->
-            <!--}-->
-        <!--});-->
-        <!--//toolbar事件监听-->
-        <!--table.on('tool(dataCheck)',function(obj){-->
-            <!--var data = obj.data; //获得当前行数据-->
-            <!--var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）-->
-            <!--var tr = obj.tr; //获得当前行 tr 的DOM对象-->
-
-            <!--if(layEvent === 'detail'){ //查看-->
-                <!--layer.open();-->
-                <!--console.log(data);-->
-            <!--}-->
-        <!--});-->
-    <!--});-->
-<!--</script>-->
-<!--&lt;!&ndash; 表格操作按钮集 &ndash;&gt;-->
-<!--&lt;!&ndash;<script type="text/html" id="barOption">&ndash;&gt;-->
-    <!--&lt;!&ndash;<a class="layui-btn layui-btn-mini" lay-event="detail">查看详情</a>&ndash;&gt;-->
-<!--</script>-->
+<div>
+    <table class="dataintable">
+        <tr><th>作者名称</th><th>作者地址</th><th>性别</th><th>注册时间</th><th>粉丝</th><th>关注</th><th>投稿</th><th>相簿</th><th>播放数</th></tr>
+        <tr><td>傲娇的草履虫</td><td>http://bilibili.com</td><td>男</td><td>2016-06-09</td><td>1222</td><td>56</td><td>77</td><td>9</td><td>18970</td></tr>
+        <tr><td>Delav</td><td>http://bilibili.com</td><td>男</td><td>2016-12-09</td><td>126</td><td>12311</td><td>654</td><td>80</td><td>126321</td></tr>
+        <tr><td>吴嫣</td><td>http://bilibili.com</td><td>女</td><td>2018-06-09</td><td>12</td><td>5346</td><td>787</td><td>14</td><td>1870</td></tr>
+    </table>
+</div>
 </body>
 </html>

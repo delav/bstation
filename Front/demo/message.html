@@ -40,30 +40,32 @@ layui.use(['form', 'layedit', 'laydate'], function() {
         layer = layui.layer,
         layedit = layui.layedit,
         laydate = layui.laydate;
-
     form.on('submit(sub)', function (data) {
         console.log(data.form);
         console.log(data.field);
         $.ajax({
             type: "POST",
+            async: false,
             dataType: "json",
-            url: "http://localhost:8000/message",
+            url: "http://127.0.0.1:8000/message",
             data: {
-                "name": "delav",
+                "name": "selav",
                 "words": data.field.words
-            }
-//            success: function (result) {
-//                console.info("数据提交成功");
-//                console.info(result);
-//                if (result.status) {
-//                // 刷新列表
-//                parent.$("#mainGrid").bootstrapTable("selectPage", 1);
-//
-//                } else {
-//                // 提示失败
-//                layer.alert(result.StatusMessage, { title: '提示信息', icon: 5 });
-//                }
-//            }
+            },
+           success: function (result) {
+               console.log("数据提交成功");
+               console.log(result);
+               console.log(result["name"])
+               // if (result.status) {
+               // // 刷新列表
+               //     layer.alert(result);
+               // // parent.$("#mainGrid").bootstrapTable("selectPage", 1);
+               //
+               // } else {
+               // // 提示失败
+               //     layer.alert("未知异常");
+               // }
+           }
         });
     });
 });
